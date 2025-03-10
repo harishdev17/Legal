@@ -17,12 +17,12 @@ export async function middleware(req) {
     }
     
        if (req.nextUrl.pathname === "/login") {
-        // If user is already logged in, redirect to home
+       
         if (session) {
             console.log("Logged-in user trying to access login page, redirecting to home");
             return NextResponse.redirect(new URL("/home", req.url));
         }
-        // Otherwise, allow access to login
+       
         return NextResponse.next();
     }
      if (!session) {
